@@ -1,0 +1,26 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  background-color: grey;
+}
+.cardContainer {
+  margin: auto;
+}
+.scrollContainer {
+  overflow: scroll;
+}
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+.scrollContainer:hover::-webkit-scrollbar {
+  display: block;
+  height: 0;
+  width: 5px;
+  color: red;
+}
+.scrollContainer::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}

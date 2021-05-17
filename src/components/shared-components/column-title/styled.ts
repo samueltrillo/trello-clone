@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const ColumnTitle = styled.div`
-    width = 100%;
-    height = 30px;
-    font-weight = bold;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    height: 35px;
     background-color: transparent;
 `
