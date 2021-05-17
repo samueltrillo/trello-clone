@@ -2,81 +2,20 @@ import React from 'react';
 import { ColumnContainer } from '../shared-components/columnContainer';
 import styles from './mainComponent.module.css';
 import Columns from './columns';
+import { card } from '../../mocks/cards';
+import { columns } from '../../mocks/columns';
 
 const MainComponent: React.FC = () => {
-
-    const title = [
-        {
-            columnId: '1',
-            columnTitle: 'To do',
-        },
-        {
-            columnId: '2',
-            columnTitle: 'In progress',
-        },
-        {
-            columnId: '3',
-            columnTitle: 'Done',
-        },
-        
-    ]
-    const card = [
-        {
-            cardTitle: 'Red hot 1',
-            description: 'by the way',
-            cardColumnId: '1',
-        },
-           {
-            cardTitle: 'Red hot 1',
-            description: 'by the way',
-            cardColumnId: '1',
-        },
-        {
-            cardTitle: 'Red hot 2',
-            description: 'scar tissue',
-            cardColumnId: '2',
-        },
-        {
-            cardTitle: 'Red hot 2',
-            description: 'easily',
-            cardColumnId: '3',
-        },
-        {
-            cardTitle: 'Red hot 2',
-            description: 'easily',
-            cardColumnId: '3',
-        },
-        {
-            cardTitle: 'Red hot 2',
-            description: 'easily',
-            cardColumnId: '3',
-        },
-        {
-            cardTitle: 'Red hot 2',
-            description: 'easily',
-            cardColumnId: '3',
-        },
-        {
-            cardTitle: 'Red hot 2',
-            description: 'easily',
-            cardColumnId: '3',
-        },
-        {
-            cardTitle: 'Red hot 2',
-            description: 'easily',
-            cardColumnId: '3',
-        },
-    ];
-
+  
     return (
         <div>
             <div className={styles.mainContainer}>
                 {
-                    title.map(titleProp => (
+                    columns.map(columnsProps => (
                         <ColumnContainer>
                             <Columns
-                                title = {titleProp.columnTitle}
-                                columnId = {titleProp.columnId}
+                                title = {columnsProps.columnTitle}
+                                columnId = {columnsProps.columnId}
                                 card = {card}
                             />
                         </ColumnContainer>
@@ -85,6 +24,6 @@ const MainComponent: React.FC = () => {
             </div>
         </div>
     );
-}
+};
 
 export default MainComponent;
