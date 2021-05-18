@@ -1,22 +1,22 @@
 import * as Actions from '../actions';
 import * as ActionType from '../types';
 import { card } from '../../mocks/cards';
+import { CardProps } from '../../components/shared-components/card/types';
 
 const initialState = {
-    cards: []
+    cards: card
 };
 
-const Reducer = (state = initialState , action: string)  => {
-    switch (action) {
+const mainReducer = (state: ActionType.StateProps = initialState , action: ActionType.ActionsProps)  => {
+    switch (action.type) {
         case ActionType.GET_ALL_CARDS:
             return {
                 ...state,
-                cards: card
+                cards: action.payload,
             };
-        break;
         default: 
             return {state};
     }
 };
 
-export default Reducer;
+export default mainReducer;

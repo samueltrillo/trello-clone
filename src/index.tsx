@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Reducer from '../src/redux/reducers';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import mainReducer from '../src/redux/reducers';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 export const rootReducer = combineReducers({
-  reducer: Reducer
+  reducer: mainReducer
 });
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware()
+));
 
 ReactDOM.render(
   <Provider store={store}>
