@@ -17,8 +17,7 @@ export const Columns: React.FC<ColumnsProps> = ({columnId, title, card}) => {
                             card.cardColumnId === columnId
                             ?
                                 <MainCard
-                                    cardTitle = {card.cardTitle}
-                                    description = {card.description}
+                                    {...card}
                                 />
                             :
                             undefined

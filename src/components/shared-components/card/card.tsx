@@ -1,14 +1,27 @@
 import React from 'react';
-import { CardContainer } from './styled';
+import * as Styled from './styled';
 import { CardProps } from './types';
 
-const MainCard: React.FC<CardProps> = ({cardTitle, description}) => {
+const MainCard: React.FC<CardProps> = ({
+    cardTitle,
+    description,
+    priority,
+    reportedBy,
+    assingedTo,
+    cardColumnId
+}) => {
     return (
         <div>
-            <CardContainer>
-                {cardTitle}
-                {description}
-            </CardContainer>
+            <Styled.CardContainer>
+                <Styled.TitleContainer>
+                    {cardTitle}
+                </Styled.TitleContainer>
+                    {description}
+                    {priority}
+                    {reportedBy}
+                    {assingedTo}
+                    {cardColumnId}
+            </Styled.CardContainer>
         </div>
     );
 };

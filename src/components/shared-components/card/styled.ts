@@ -9,3 +9,6 @@ export const CardContainer = styled.div`
     height: 20vh;
     background-color: white;
 `
+export const TitleContainer = styled.div`
+    font-weight: bold;
+`;
