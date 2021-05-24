@@ -1,20 +1,31 @@
-// import { FormikErrors } from 'formik';
-export const Hola = 'asd';
-// import { CardProps } from '../../card/types';
+import * as Yup from 'yup';
 
-// interface Error {name: string}
+export const validationSchema = Yup.object().shape({
+    cardTitle: Yup.string()
+        .max(50, 'Must be 50 characters or les')
+        .required('Required'),
+    description: Yup.string()
+        .max(150, 'Must be 150 characters or less')
+        .required('Required'),
+    reportedBy: Yup.string()
+        .max(50, 'Must be 50 characters or less')
+        .required('Required'),
+    assignedTo: Yup.string()
+        .max(50, 'Must be 50 characters or less')
+        .required('Required'),
+});
 
 // export const validate = (values: CardProps) => {
-//     const errors: (Error) = {};
+//     const errors: (ErrorProps) = {};
 //     const validations = [
 //         {
 //             name: 'cardTitle',
-//             validation: () => values.cardTitle ? values.cardTitle > 50 : null,
+//             validation: () => values.cardTitle ? values.cardTitle.length > 50 : null,
 //             validarionMsg: 'Must be 50 characters or less'
 //         },
 //         {
 //             name: 'description',
-//             validation: () => values.description > 150,
+//             validation: () => values.description ? values.description.length > 150 : null,
 //             validarionMsg: 'Must be 150 characters or less'
 //         },
 //         {
@@ -24,12 +35,12 @@ export const Hola = 'asd';
 //         },
 //         {
 //             name: 'reportedBy',
-//             validation: () => values.reportedBy > 50,
+//             validation: () => values.reportedBy.length > 50,
 //             validarionMsg: 'Must be 50 characters or less'
 //         },
 //         {
 //             name: 'assignedTo',
-//             validation: () => values.assignedTo > 50,
+//             validation: () => values.assingedTo ? values.assingedTo.length > 50 : null,
 //             validarionMsg: 'Must be 50 characters or less'
 //         },
 //         {

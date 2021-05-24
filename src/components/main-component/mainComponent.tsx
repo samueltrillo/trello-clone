@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ColumnContainer } from '../shared-components/columnContainer';
 import styles from './mainComponent.module.css';
 import Columns from './columns';
@@ -7,6 +7,8 @@ import { card } from '../../mocks/cards';
 import { columns } from '../../mocks/columns';
 
 const MainComponent: React.FC = () => {
+
+    const [isOpened, setIsOpened] = useState(false);
   
     return (
         <div>
@@ -23,7 +25,14 @@ const MainComponent: React.FC = () => {
                     ))
                 }
             </div>
-            <Modal/>
+            <button onClick={() => setIsOpened(true)}>Open Modal</button>
+            {
+                isOpened
+                ?
+                    <Modal />
+                :
+                    undefined
+            }
         </div>
     );
 };

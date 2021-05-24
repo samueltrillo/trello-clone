@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 
 export const Columns: React.FC<ColumnsProps> = ({columnId, title, card}) => {
-    
+
     return (
         <div className={styles.mainContainer}>
             <ColumnTitle title = {title}/>
