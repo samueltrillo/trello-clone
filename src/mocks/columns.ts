@@ -10,6 +10,5 @@ export const columns = [
     {
         columnId: '3',
         columnTitle: 'Done',
-    },
-    
-]
+    },   
+];

@@ -1,5 +1,8 @@
+import {v4 as uuid} from 'uuid';
+
 export const card = [
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 1',
         description: 'by the way',
         cardColumnId: '1',
@@ -7,7 +10,8 @@ export const card = [
         reportedBy: 'Samuel Trillo',
         assingedTo: 'Aaron Trillo',
     },
-       {
+    {
+        cardId: uuid(),
         cardTitle: 'Red hot 1',
         description: 'by the way',
         cardColumnId: '1',
@@ -16,6 +20,7 @@ export const card = [
         assingedTo: 'Aaron Trillo',
     },
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 2',
         description: 'scar tissue',
         cardColumnId: '2',
@@ -24,6 +29,7 @@ export const card = [
         assingedTo: 'Elias Trillo',
     },
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 2',
         description: 'easily',
         cardColumnId: '3',
@@ -32,6 +38,7 @@ export const card = [
         assingedTo: 'Aaron Trillo',
     },
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 2',
         description: 'easily',
         cardColumnId: '3',
@@ -40,6 +47,7 @@ export const card = [
         assingedTo: 'Aaron Trillo',
     },
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 2',
         description: 'easily',
         cardColumnId: '3',
@@ -48,6 +56,7 @@ export const card = [
         assingedTo: 'Aaron Trillo',
     },
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 2',
         description: 'easily',
         cardColumnId: '3',
@@ -56,6 +65,7 @@ export const card = [
         assingedTo: 'Aaron Trillo',
     },
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 2',
         description: 'easily',
         cardColumnId: '3',
@@ -64,6 +74,7 @@ export const card = [
         assingedTo: 'Aaron Trillo',
     },
     {
+        cardId: uuid(),
         cardTitle: 'Red hot 2',
         description: 'easily',
         cardColumnId: '3',

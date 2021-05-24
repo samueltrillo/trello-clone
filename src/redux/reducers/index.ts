@@ -1,10 +1,11 @@
-import * as Actions from '../actions';
 import * as ActionType from '../types';
 import { card } from '../../mocks/cards';
-import { CardProps } from '../../components/shared-components/card/types';
+import { columns } from '../../mocks/columns';
 
 const initialState = {
-    cards: card
+    cards: card,
+    columns: columns,
+    isModalOpened: false,
 };
 
 const mainReducer = (state: ActionType.StateProps = initialState , action: ActionType.ActionsProps)  => {
@@ -13,10 +14,20 @@ const mainReducer = (state: ActionType.StateProps = initialState , action: Actio
             return {
                 ...state,
                 cards: action.payload,
-            };
+            }
+        case ActionType.GET_ALL_COLUMNS:
+            return {
+                ...state,
+                columns: action.payload,
+            }
+        case ActionType.IS_MODAL_OPENED:
+            return {
+                ...state,
+                isModalOpened: true,
+            }
         default: 
             return {state};
-    }
+    };
 };
 
 export default mainReducer;
