@@ -1,5 +1,5 @@
 import React from 'react';
-import MainComponent from './components/main-component';
+import MainComponent from './components/main-component/index';
 import Header from './components/shared-components/header';
 
 function App() {

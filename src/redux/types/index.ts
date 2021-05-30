@@ -12,7 +12,7 @@ export interface StateProps {
 }
 
 export interface ColumnsProps {
-    columnId: string;
+    id: string;
     columnTitle: string;
 }
 

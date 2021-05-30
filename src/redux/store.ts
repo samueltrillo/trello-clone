@@ -1,17 +1,16 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, combineReducers, compose } from 'redux';
 import { ActionTypes, StateProps } from './types';
 import mainReducer from './reducers';
 
 export type RootAction = ActionTypes;
 export interface RootState {
-    state: StateProps;
+    global: StateProps;
 };
 
 export const configureStore = () => {
 
     const rootReducer = combineReducers<RootState>({
-        state: mainReducer,
+        global: mainReducer,
     });
 
     const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
