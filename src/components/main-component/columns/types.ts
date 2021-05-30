@@ -3,7 +3,7 @@ import { TitleProps } from "../../shared-components/column-title/types";
 
 export interface ColumnsProps extends TitleProps {
     card: CardColumnProp[];
-    columnId: string;
+    id: string;
 }
 
 export interface CardColumnProp extends CardProps {

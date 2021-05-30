@@ -3,10 +3,9 @@ import { ColumnContainer } from '../shared-components/columnContainer';
 import styles from './mainComponent.module.css';
 import Columns from './columns';
 import Modal from './modal';
-import { card } from '../../mocks/cards';
-import { columns } from '../../mocks/columns';
+import { Props } from './index';
 
-const MainComponent: React.FC = () => {
+const MainComponent: React.FC<Props> = ({columns}) => {
 
     const [isOpened, setIsOpened] = useState(false);
   
@@ -14,12 +13,12 @@ const MainComponent: React.FC = () => {
         <div>
             <div className={styles.mainContainer}>
                 {
-                    columns.map(columnsProps => (
-                        <ColumnContainer>
+                    columns && columns.map(columnsProps => (
+                        <ColumnContainer key={columnsProps.id}>
                             <Columns
                                 title = {columnsProps.columnTitle}
-                                columnId = {columnsProps.columnId}
-                                card = {card}
+                                id = {columnsProps.id}
+                                key= {columnsProps.id}
                             />
                         </ColumnContainer>
                     ))

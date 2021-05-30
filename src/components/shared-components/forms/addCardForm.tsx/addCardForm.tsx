@@ -2,10 +2,39 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { columns } from '../../../../mocks/columns';
 import { validationSchema } from './formikConfig';
+import Input from '../../input';
+import Label from '../../label';
+import Select from '../../select';
+import { v4 as uuid } from 'uuid';
 
 const AddCardForm: React.FC = () => {
 
-    const priorityNumbers = [1,2,3,4,5,6];
+    const priorityNumbers = [
+        {
+            id: uuid(),
+            value: 1,
+        },
+        {
+            id: uuid(),
+            value: 2,
+        },
+        {
+            id: uuid(),
+            value: 3,
+        },
+        {
+            id: uuid(),
+            value: 4,
+        },
+        {
+            id: uuid(),
+            value: 5,
+        },
+        {
+            id: uuid(),
+            value: 6,
+        }
+    ];
     
     const formik = useFormik({
         initialValues: {
@@ -24,58 +53,57 @@ const AddCardForm: React.FC = () => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <label htmlFor='cardTitle'>Card Title</label>
-            <input
+            <Label htmlFor={'cardTitle'} name={'Card Title'} />
+            {/* <input
                 id='cardTitle'
                 type='text'
                 {...formik.getFieldProps('cardTitle')}
                 placeholder='Enter the card name'
+            /> */}
+            <Input
+                id='cardTitle'
+                type='text'
+                formik= {{...formik.getFieldProps('cardTitle')}}
+                placeholder='Enter the card name'
             />
             {formik.touched.cardTitle && formik.errors.cardTitle ? ( <div>{formik.errors.cardTitle}</div> ) : null}
-            <label htmlFor='description'>Description</label>
-            <input
+            <Label htmlFor={'description'} name={'Description'} />
+            <Input
                 id='description'
                 type='text'
-                {...formik.getFieldProps('description')}
+                formik={{...formik.getFieldProps('description')}}
                 placeholder='Enter the card description'
             />
-            <label htmlFor='priority'>Priority</label>
-            <select
+            <Label htmlFor={'priority'} name={'Priority'} />
+            <Select
                 id='priority'
-                {...formik.getFieldProps('priority')}
-            >
-                <option value={formik.initialValues.priority} disabled selected>-</option>
-                {
-                    priorityNumbers.map(priority => 
-                        <option value={priority} key={priority}>
-                            {priority}
-                        </option>
-                    )
-                }
-            </select>
-            <label htmlFor='reportedBy'>Reported By</label>
-            <input
+                fieldProps={{...formik.getFieldProps('priority')}}
+                initialValue={formik.initialValues.priority}
+                values={priorityNumbers}
+            />
+            <Label htmlFor={'reportedBy'} name={'Reported By'} />
+            <Input
                 id='reportedBy'
                 type='text'
-                {...formik.getFieldProps('reportedBy')}
+                formik={{...formik.getFieldProps('reportedBy')}}
                 placeholder='Reported by...'
             />
-            <label htmlFor='assignedTo'>Assigned To</label>
-            <input
+            <Label htmlFor={'assignedTo'} name={'Assigned To'} />
+            <Input
                 id='assignedTo'
                 type='text'
-                {...formik.getFieldProps('assignedTo')}
+                formik={{...formik.getFieldProps('assignedTo')}}
                 placeholder='Assigned to'
             />
-            <label htmlFor='cardColumnId'>Select list title</label>
-             <select
+            <Label htmlFor={'cardColumnId'} name={'cardColumnId'} />
+            <select
                 id='cardColumnId'
                 {...formik.getFieldProps('cardColumnId')}
             >
                 <option value={formik.initialValues.cardColumnId} disabled selected>-</option>
                 {
                     columns.map(column => 
-                        <option value={column.columnId} key={column.columnId}>
+                        <option value={column.id} key={column.id}>
                             {column.columnTitle}
                         </option>
                     )
