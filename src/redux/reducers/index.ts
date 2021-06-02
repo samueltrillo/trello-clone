@@ -1,22 +1,38 @@
-import * as Actions from '../actions';
-import * as ActionType from '../types';
+import { StateProps, ActionTypes, ActionConsts } from '../types';
 import { card } from '../../mocks/cards';
-import { CardProps } from '../../components/shared-components/card/types';
+import { columns } from '../../mocks/columns';
+import { Reducer } from 'redux';
 
-const initialState = {
-    cards: card
+const initialState: StateProps = {
+    cards: card,
+    columns: columns,
+    isModalOpened: false,
 };
 
-const mainReducer = (state: ActionType.StateProps = initialState , action: ActionType.ActionsProps)  => {
+const mainReducer: Reducer<StateProps, ActionTypes> = (
+    state = initialState,
+    action
+    ): StateProps => {
+
     switch (action.type) {
-        case ActionType.GET_ALL_CARDS:
+        case ActionConsts.GET_ALL_CARDS:
             return {
                 ...state,
-                cards: action.payload,
-            };
+                cards: [action.payload],
+            }
+        case ActionConsts.GET_ALL_COLUMNS:
+            return {
+                ...state,
+                columns: [action.payload],
+            }
+        case ActionConsts.IS_MODAL_OPENED:
+            return {
+                ...state,
+                isModalOpened: true,
+            }
         default: 
-            return {state};
-    }
+            return {...state};
+    };
 };
 
 export default mainReducer;

@@ -5,8 +5,8 @@ import MainCard from '../../shared-components/card';
 import styles from './styles.module.css';
 
 
-export const Columns: React.FC<ColumnsProps> = ({columnId, title, card}) => {
-    
+export const Columns: React.FC<ColumnsProps> = ({id, title, card}) => {
+
     return (
         <div className={styles.mainContainer}>
             <ColumnTitle title = {title}/>
@@ -14,10 +14,11 @@ export const Columns: React.FC<ColumnsProps> = ({columnId, title, card}) => {
                 <div className={styles.cardsContainer}>
                     {
                         card && card.map(card => (
-                            card.cardColumnId === columnId
+                            card.cardColumnId === id
                             ?
                                 <MainCard
                                     {...card}
+                                    key={card.cardId}
                                 />
                             :
                             undefined

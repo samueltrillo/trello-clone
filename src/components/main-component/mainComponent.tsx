@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ColumnContainer } from '../shared-components/columnContainer';
 import styles from './mainComponent.module.css';
 import Columns from './columns';
-import { card } from '../../mocks/cards';
-import { columns } from '../../mocks/columns';
+import Modal from './modal';
+import { Props } from './index';
 
-const MainComponent: React.FC = () => {
+const MainComponent: React.FC<Props> = ({columns}) => {
+
+    const [isOpened, setIsOpened] = useState(false);
   
     return (
         <div>
             <div className={styles.mainContainer}>
                 {
-                    columns.map(columnsProps => (
-                        <ColumnContainer>
+                    columns && columns.map(columnsProps => (
+                        <ColumnContainer key={columnsProps.id}>
                             <Columns
                                 title = {columnsProps.columnTitle}
-                                columnId = {columnsProps.columnId}
-                                card = {card}
+                                id = {columnsProps.id}
+                                key= {columnsProps.id}
                             />
                         </ColumnContainer>
                     ))
                 }
             </div>
+            <button onClick={() => setIsOpened(true)}>Open Modal</button>
+            {
+                isOpened
+                ?
+                    <Modal />
+                :
+                    undefined
+            }
         </div>
     );
 };
