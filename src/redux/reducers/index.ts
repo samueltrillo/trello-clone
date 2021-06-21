@@ -9,11 +9,7 @@ const initialState: StateProps = {
     isModalOpened: false,
 };
 
-const mainReducer: Reducer<StateProps, ActionTypes> = (
-    state = initialState,
-    action
-    ): StateProps => {
-
+const mainReducer: Reducer<StateProps, ActionTypes> = (state = initialState, action): StateProps => {
     switch (action.type) {
         case ActionConsts.GET_ALL_CARDS:
             return {
@@ -28,7 +24,7 @@ const mainReducer: Reducer<StateProps, ActionTypes> = (
         case ActionConsts.IS_MODAL_OPENED:
             return {
                 ...state,
-                isModalOpened: true,
+                isModalOpened: action.payload,
             }
         default: 
             return {...state};
