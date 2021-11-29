@@ -2,7 +2,7 @@ import React from 'react';
 import { SelectProps } from './types';
 import * as Styled from './styles';
 
-const Select: React.FC<SelectProps> = ({fieldProps, initialValue, values, id}) => {
+const Select: React.FC<SelectProps> = ({fieldProps, initialValue, values, id, field = "title"}) => {
     return (
         <div>
             <Styled.Select
@@ -13,7 +13,7 @@ const Select: React.FC<SelectProps> = ({fieldProps, initialValue, values, id}) =
                 {
                     values.map(data => 
                         <option value={data.id} key={data.id}>
-                            {data.value}
+                            {data[field]}
                         </option>
                     )
                 }

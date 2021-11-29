@@ -80,6 +80,7 @@ const AddCardForm: React.FC = () => {
                 fieldProps={{...formik.getFieldProps('priority')}}
                 initialValue={formik.initialValues.priority}
                 values={priorityNumbers}
+                field={'value'}
             />
             <Label htmlFor={'reportedBy'} name={'Reported By'} />
             <Input

@@ -5,9 +5,11 @@ export interface SelectProps {
     initialValue: any;
     values: Value[];
     fieldProps?: FieldInputProps<any>;
+    field?: "title" | "value";
 }
 
 interface Value {
     id: string;
-    value: any;
+    value?: any;
+    title?: string;
 }

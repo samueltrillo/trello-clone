@@ -1,5 +1,10 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
+// import HtmlWebpackPlugin from ''
+//   new ({
+//       template: path.join(__dirname, "src", "index.html"),
+//   }),
+// ],
 
 // module.exports = {
 //   entry: "./src/index.tsx",
@@ -36,17 +41,25 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         use: ["ts-loader"],
         exclude: /node_modules/,
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(js|jsx)$/,
         use: {
           loader: "babel-loader",
           //options: "@babel/preset-react",
         },
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: ['file-loader']
       },
     ],
   },
@@ -57,6 +70,11 @@ const config: webpack.Configuration = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //       template: path.join(__dirname, "src", "index.html"),
+  //   }),
+  // ],
 }
 
 export default config;
